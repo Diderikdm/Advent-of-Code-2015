@@ -11,7 +11,7 @@ def run(data):
         for ex in excluded:
             if ex in data:
                 data = alter_data(data, data.index(ex))
-        if not len(list(set(sum([[x,x+1] for x in range(0, len(data)-1) if data[x] == data[x+1]], [])))) > 3:
+        if not len(set(sum([[x,x+1] for x in range(0, len(data)-1) if data[x] == data[x+1]], []))) > 3:
             data = alter_data(data, len(data)-1)
         elif not any(ord(data[x+2]) - ord(data[x+1]) == 1 and ord(data[x+1]) - ord(data[x]) == 1 for x in range(0, len(data)-2)):
             data = alter_data(data, len(data)-1)
